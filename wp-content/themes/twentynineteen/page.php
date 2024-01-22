@@ -16,7 +16,7 @@ get_header();
 		<main id="main" class="site-main">
 
 			<?php
-			var_dump("Hello from parent");
+
 			// Start the Loop.
 			while ( have_posts() ) :
 				the_post();

@@ -48,6 +48,14 @@ services:
       MYSQL_ROOT_USER: root
       MYSQL_ROOT_PASSWORD: password
       UPLOAD_LIMIT: 100M
+  my-wpcli:
+    image: tatemz/wp-cli
+    volumes_from:
+      - wordpress
+    links:
+      - wordpress:mysql
+    entrypoint: wp
+    command: "--info"
 volumes:
   wordpress:
   db:
