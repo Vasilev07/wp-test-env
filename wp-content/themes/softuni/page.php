@@ -1,13 +1,47 @@
-<div class="intro row">
-                    <div class="overlay"></div>
-                    <div class="col-sm-6 col-sm-offset-6">
-                        <h2 class="header-quote">Save time and lower</h2>
-                        <p>
-                            Your sweeping costs with the
-                        </p>
-                        <h1 class="header-title">Robot<br><span class="thin">Factory</span></h1>
+<?php get_header(); ?>
+        
+        <div class="intro row">
+            <div class="overlay"></div>
+            <div class="col-sm-12">
+                <ol class="breadcrumb">
+                    <li><a href="<?php echo get_home_url( '/' ); ?>">Home</a></li>
+                    <li class="active"><?php the_title(); ?></li>
+                </ol>
+            </div>
+        </div> <!-- /.intro.row -->
+    </div> <!-- /.container -->
+    <div class="nutral"></div>
+</section> <!-- /#header -->
+
+<section class="faq">
+    <?php if ( have_posts() ) : ?>
+
+        <?php while ( have_posts() ) : the_post(); ?>
+
+            <div class="container page-bgc">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="title-box">
+                            <h1 class="title mt0"><?php the_title(); ?></h1>
+                        </div>
                     </div>
-                </div> <!-- /.intro.row -->
-            </div> <!-- /.container -->
-            <div class="nutral"></div>
-        </section> <!-- /#header --> 
+                </div>
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <div class="inner-p">
+                            <?php the_content(); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <?php endwhile; ?>
+
+    <?php else : ?>
+
+        Sorry, there is nothing I can show you.
+
+    <?php endif; ?>
+</section>
+
+<?php get_footer(); ?>
