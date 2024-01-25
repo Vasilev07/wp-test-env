@@ -1,16 +1,28 @@
 <?php
 
-function enqueue_scripts() {
-    var_dump('hi');
-    wp_enqueue_script( 'bootstrap-min', get_template_directory_uri( ) .  '/assets/js/bootstrap.min.js', [], '1.0.0');
-    wp_enqueue_script( 'magnific-popup', get_template_directory_uri( ) . '/assets/js/magnific-popup.css' , [], '1.0.0');
-    wp_enqueue_script( 'olw-carousel-min', get_template_directory_uri( ) .  '/assets/js/owl.carousel.min.js', [], '1.0.0');
+add_theme_support( 'post-thumbnails' );
 
-    wp_enqueue_style( 'bootstrap', get_template_directory_uri( ) . '/assets/css/bootstrap.min.css', [], '1.0.0');
-    wp_enqueue_style( 'icons', get_template_directory_uri( ) . '/assets/css/ionicons.css', [], '1.0.0');
-    wp_enqueue_style( 'magnific', get_template_directory_uri( ) . '/assets/css/magnific-popup.css', [], '1.0.0');
-    wp_enqueue_style( 'main', get_template_directory_uri( ) . '/assets/css/main.css', [], '1.0.0');
-    wp_enqueue_style( 'owl', get_template_directory_uri( ) . '/assets/css/owl.carousel.css', [], '1.0.0');
+function enqueue_scripts( $hook ) {
+    var_dump('hi');
+
+
+    $args = array(
+        'in_footer' => true,
+        'strategy'  => 'defer',
+    );
+
+    $main_css = get_template_directory_uri() . '/assets/css/main.css';
+
+    wp_enqueue_script( 'bootstrap-min-js', get_template_directory_uri( ) .  '/assets/js/bootstrap.min.js', [], '1.0.0', $args);
+    wp_enqueue_script( 'jquery.magnific-popup', get_template_directory_uri( ) . '/assets/js/jquery.magnific-popup.min.js' , [], '1.0.0', $args);
+    wp_enqueue_script( 'olw-carousel-min', get_template_directory_uri( ) .  '/assets/js/script.js', [], '1.0.0', $args);
+
+    wp_enqueue_style( 'bootstrap.min-css', get_template_directory_uri() . '/assets/css/bootstrap.min.css', false, '1.0.0' );
+    wp_enqueue_style( 'ionicons.css', get_template_directory_uri() . '/assets/css/ionicons.css', false, '1.0.0' );
+    wp_enqueue_style( 'magnific-popup.css', get_template_directory_uri() . '/assets/css/magnific-popup.css', false, '1.0.0' );
+    wp_enqueue_style( 'owl.carousel.css', get_template_directory_uri() . '/assets/css/owl.carousel.css', false, '1.0.0' );
+    wp_enqueue_style( 'owl.carousel.theme.min.css', get_template_directory_uri() . '/assets/css/owl.carousel.theme.min.css', false, '1.0.0' );
+    wp_enqueue_style( 'main.css', get_template_directory_uri() . '/assets/css/main.css', false, '1.0.4' );
 }
 
-add_action( 'wp-enqueue-scripts', 'enqueue_scripts');
+add_action( 'wp_enqueue_scripts', 'enqueue_scripts');
