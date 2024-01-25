@@ -46,7 +46,7 @@ function su_robots_type() {
             'thumbnail',
             'revisions',
         ),
-        // 'show_in_rest'       => true
+        'show_in_rest'       => true
     );
 
     register_post_type( 'robot', $args );
